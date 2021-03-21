@@ -8,12 +8,12 @@ import Navigation from './Header/Navigation';
 import Topheader from './Header/Topheader'
 import { Jumbotron } from './Body/Jumbotron';
 import {Login}  from './Pages/Login'
+import {Signup} from './Pages/Signup'
 import React from 'react';
 function App() {
   return (
     <React.Fragment>
       <BrowserRouter>
-        <Topheader />
         <Navigation />
         <Jumbotron />
             <Switch>
@@ -21,6 +21,7 @@ function App() {
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
             <Route path="/login" component={Login} />
+            <Route path="/signup" component={Signup} />
             <Route component={NoMatch} />
           </Switch>
       </BrowserRouter>

@@ -1,6 +1,4 @@
 import React, { Component } from "react";
-import Register from '../Body/Register'
-import Login from '../Body/Login';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom'
 import { Navbar, FormControl, Button, Form, NavDropdown, Nav } from 'react-bootstrap'
@@ -45,7 +43,7 @@ export class Navigation extends Component {
                         </Nav>
                         <Form inline>
                             <Button href='/login' className="ml-1 btn-danger text-light" variant="outline-success" to='/login'>Login</Button>
-                            <Button href='/register' className="ml-1 " variant="outline-success">Signup</Button>
+                            <Button href='/signup' className="ml-1 " variant="outline-success" to='/signup'>Signup</Button>
                         </Form>
                     </Navbar.Collapse>
                 </Navbar>
