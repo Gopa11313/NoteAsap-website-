@@ -1,9 +1,9 @@
 import React from 'react'
-import Container from '../Body/Container'
+import CardBody from '../Body/CardBody'
 import Footer from '../Footer/Footer'
 export const Home = () => (
     <div>
-        {/* <Container /> */}
+       <CardBody/>
         <Footer />
     </div>
 

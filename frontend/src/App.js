@@ -6,8 +6,8 @@ import { Contact } from "./Pages/Contact";
 import { NoMatch } from "./Pages/NoMatch";
 import Navigation from './Header/Navigation';
 import Topheader from './Header/Topheader'
-import { Layout } from './Body/Layout';
 import { Jumbotron } from './Body/Jumbotron';
+import {Login}  from './Pages/Login'
 import React from 'react';
 function App() {
   return (
@@ -16,14 +16,13 @@ function App() {
         <Topheader />
         <Navigation />
         <Jumbotron />
-        <Layout>
-          <Switch>
+            <Switch>
             <Route exact path="/" component={Home} />
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />
+            <Route path="/login" component={Login} />
             <Route component={NoMatch} />
           </Switch>
-        </Layout>
       </BrowserRouter>
     </React.Fragment>
 
