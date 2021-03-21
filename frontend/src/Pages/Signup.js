@@ -7,17 +7,22 @@ export class Signup extends Component {
         "email":"",
         "password":"",
         "con_password":""
-    
+    }
+    changeHandler=(e)=>{
+        this.setState({
+            [e.target.name] : e.target.value
+        })
     }
     RegitserUserInfo=(e)=>{
         e.preventDefault();
-        const data={
-            "name":this.state.name,
-            "email":this.state.email,
-            "password":this.state.password
-        }
-        Axios.post("http://localhost:90/user/add",data).then(response=>{
-            console.log(data)
+        Axios.post("http://localhost:90/user/add",this.state)
+        .then((response)=>{
+            console.log(response);
+            alert("OK")
+        })        
+        .catch((err)=>{
+            console.log(err.response)
+            alert("here")
         })
     }
     render() {
@@ -27,24 +32,23 @@ export class Signup extends Component {
                 <Form>
                 <Form.Group >
                         <Form.Label>Full name</Form.Label>
-                        <Form.Control type="text" value={this.state.name} 
-                        onChange={(event)=>this.setState({name:event.target.value})} placeholder="Enter full name" />
+                        <Form.Control type="text" className="form-control" name="name" value={this.setState.name}  onChange={this.changeHandler}
+                        placeholder="Enter full name"/>
                     </Form.Group>
                     <Form.Group >
                         <Form.Label>Email address</Form.Label>
-                        <Form.Control type="email" value ={this.state.email }
-                        onChange={(event)=>this.setState({email:event.target.value})} placeholder="Enter email" />
+                        <Form.Control type="email"className="form-control" name="email" value={this.setState.email}  onChange={this.changeHandler}
+                         placeholder="Enter email" />
                     </Form.Group>
                     <Form.Group >
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password"value ={this.state.password} 
-                        onChange={(event)=>this.setState({password:event.target.value})} placeholder="Password" />
+                        <Form.Control type="password"className="form-control"name="password" value={this.setState.password}  onChange={this.changeHandler}
+                        placeholder="Password" />
                     </Form.Group>
 
                     <Form.Group >
                         <Form.Label>Con-Password</Form.Label>
-                        <Form.Control type="password" value ={this.state.con_password} 
-                        onChange={(event)=>this.setState({con_password:event.target.value})} placeholder="Con-Password" />
+                        <Form.Control type="password" name="con-password" value={this.setState.con_password}  onChange={this.changeHandler} placeholder="Con-Password" />
                     </Form.Group>
 
                     <Form.Group >

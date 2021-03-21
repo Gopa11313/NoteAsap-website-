@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from 'styled-components';
 import Axios from 'axios'
+import Footer from '../Footer/Footer'
 import { Layout } from '../Body/Layout';
 const Styles = styled.div`
   .login {
@@ -25,40 +26,41 @@ const Styles = styled.div`
   }
 `;
 export class Login extends Component {
-    state={
-        "email":"",
-       "password":""
+    state = {
+        "email": "",
+        "password": ""
     }
-    changeHandler=(e)=>{
+    changeHandler = (e) => {
         this.setState({
-            [e.target.name] : e.target.value
+            [e.target.name]: e.target.value
         })
     }
-    loginuser=(e)=>{
+    loginuser = (e) => {
         e.preventDefault();
-        Axios.post("http://localhost:90/user/login",this.state)
-        .then((response)=>{
-            console.log(response);
-            alert("OK")
-        })        
-        .catch((err)=>{
-            console.log(err.response)
-            alert("here")
-        })
+        Axios.post("http://localhost:90/user/login", this.state)
+            .then((response) => {
+                console.log(response);
+                alert("OK")
+            })
+            .catch((err) => {
+                console.log(err.response)
+                alert("here")
+            })
     }
     render() {
         return (
-                <form className="container-sm " style={{'width':'40%'}}>
+            <React.Fragment>
+                <form className="container-sm rounded" style={{ 'width': '40%',"border":"1px solid"}}>
                     <h3>Sign In</h3>
 
                     <div className="form-group">
                         <label>Email address</label>
-                        <input type="email" name="email" className="form-control" value={this.setState.email}  onChange={this.changeHandler} placeholder="Enter email" />
+                        <input type="email" name="email" className="form-control" value={this.setState.email} onChange={this.changeHandler} placeholder="Enter email" />
                     </div>
 
                     <div className="form-group">
                         <label>Password</label>
-                        <input type="password" name="password" className="form-control" value={this.setState.password} onChange={this.changeHandler}placeholder="Enter password" />
+                        <input type="password" name="password" className="form-control" value={this.setState.password} onChange={this.changeHandler} placeholder="Enter password" />
                     </div>
 
                     <div className="form-group">
@@ -73,7 +75,9 @@ export class Login extends Component {
                         Forgot <a href="#">password?</a>
                     </p>
                 </form>
-        );
-    }
-}
+                <Footer/>
+                </React.Fragment >
+                    );
+                    }
+                    }
 export default Login
