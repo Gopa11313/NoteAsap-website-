@@ -9,6 +9,7 @@ import Topheader from './Header/Topheader'
 import { Jumbotron } from './Body/Jumbotron';
 import {Login}  from './Pages/Login'
 import {Signup} from './Pages/Signup'
+import {UploadNote} from './Body/UploadNote'
 import React from 'react';
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
             <Route path="/contact" component={Contact} />
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
+            <Route path="/upload" component={UploadNote} />
             <Route component={NoMatch} />
           </Switch>
       </BrowserRouter>

@@ -28,7 +28,10 @@ const Styles = styled.div`
 export class Login extends Component {
     state = {
         "email": "",
-        "password": ""
+        "password": "",
+        config:{
+            headers:{'authorization':`Bearer ${localStorage.getItem('token')}`}
+        }
     }
     changeHandler = (e) => {
         this.setState({
@@ -39,12 +42,12 @@ export class Login extends Component {
         e.preventDefault();
         Axios.post("http://localhost:90/user/login", this.state)
             .then((response) => {
-                console.log(response);
-                alert("OK")
+                console.log(response.data.id);
+                localStorage.setItem('token',response.data.token)
+                localStorage.setItem('id',response.data.id)
             })
             .catch((err) => {
                 console.log(err.response)
-                alert("here")
             })
     }
     render() {

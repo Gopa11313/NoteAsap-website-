@@ -40,10 +40,15 @@ export class Navigation extends Component {
                                     <Link to="/contact">Contact</Link>
                                 </Nav.Link>
                             </Nav.Item>
+                            <Nav.Item>
+                                <Nav.Link>
+                                    <Link to="/upload">UploadNotes</Link>
+                                </Nav.Link>
+                            </Nav.Item>
                         </Nav>
                         <Form inline>
-                            <Button href='/login' className="ml-1 btn-danger text-light" variant="outline-success" to='/login'>Login</Button>
-                            <Button href='/signup' className="ml-1 " variant="outline-success" to='/signup'>Signup</Button>
+                            <Button className="ml-1 bg-dark text-light" ><Link to="/login">Login</Link></Button>
+                            <Button className="ml-1 btn-danger" variant="outline-success"><Link to="/signUp">sign Up</Link></Button>
                         </Form>
                     </Navbar.Collapse>
                 </Navbar>
