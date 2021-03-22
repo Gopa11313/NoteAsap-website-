@@ -12,7 +12,6 @@ class Display extends Component {
     componentDidMount() {
         axios.get("http://localhost:90/get/notes",this.state.config)
             .then((response) => {
-               // console.log(response.data.data)
                 this.setState({
                     notes: response.data.data
                 })
