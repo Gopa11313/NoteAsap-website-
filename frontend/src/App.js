@@ -9,6 +9,7 @@ import Topheader from './Header/Topheader'
 import { Jumbotron } from './Body/Jumbotron';
 import {Login}  from './Pages/Login'
 import {Signup} from './Pages/Signup'
+import {UpdateNote} from './Body/UpdateNote'
 import {UploadNote} from './Body/UploadNote'
 import React from 'react';
 function App() {
@@ -24,6 +25,7 @@ function App() {
             <Route path="/login" component={Login} />
             <Route path="/signup" component={Signup} />
             <Route path="/upload" component={UploadNote} />
+            <Route path="/updateNote/:id" component={UpdateNote} />
             <Route component={NoMatch} />
           </Switch>
       </BrowserRouter>

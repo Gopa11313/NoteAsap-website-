@@ -37,7 +37,7 @@ export class UploadNote extends Component {
                 <h3>Upload Note</h3>
                 <Form>
                     <Form.Group>
-                        <Form.File id="exampleFormControlFile1" label="Select File" name="file" value={this.setState.file} onChange={this.changeHandler} />
+                        <Form.File type="file" id="exampleFormControlFile1" label="Select File" name="file" value={this.setState.file} onChange={this.changeHandler} />
                     </Form.Group>
                     <Form.Group >
                         <Form.Label>Level</Form.Label>

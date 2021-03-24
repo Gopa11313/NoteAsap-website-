@@ -4,6 +4,7 @@ import axios from "axios";
 import { Card, Button } from 'react-bootstrap'
 import notes from '../assets/notes.png'
 import styled from 'styled-components';
+import { Link } from "react-router-dom";
 const Styles = styled.div`
   .Background = styled.div({
     backgroundSize: "cover",
@@ -52,7 +53,9 @@ class Display extends Component {
                                                 <Card.Text>
                                                     {b.description}
                                                 </Card.Text>
-                                                <Button variant="primary">Go somewhere</Button>
+                                                <Button variant="primary">Delete</Button>
+                                                <p variant="primary" ><Link to={'/updateNote/'+b._id}>Update</Link> </p>
+                                                
                                             </Card.Body>
                                             <Card.Footer>
                                                 <small className="text-muted">Last updated 3 mins ago</small>
