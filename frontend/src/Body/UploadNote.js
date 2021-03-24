@@ -23,7 +23,7 @@ export class UploadNote extends Component {
         e.preventDefault();
         Axios.post("http://localhost:90/upload/note/with/file",this.state)
         .then((response)=>{
-            console.log(response);
+            console.log(response.data);
             alert("OK")
         })        
         .catch((err)=>{
