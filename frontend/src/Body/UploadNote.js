@@ -3,27 +3,41 @@ import { Container, Form, Button } from 'react-bootstrap'
 import Axios from 'axios'
 export class UploadNote extends Component {
     state={
-        "file":"",
-        "level":"",
-        "subject":"",
-        "c_name":"",
-        "topic":"",
-        "description":"",
-        "userId":localStorage.getItem('id'),
-        config:{
-            headers:{'authorization':`Bearer ${localStorage.getItem('token')}`}
+        file:"",
+        level:"",
+        subject:"",
+        c_name:"",
+        topic:"",
+        description:"",
+        userId:localStorage.getItem('id'),
+        config : {
+            headers : {'authorization': `Bearer ${localStorage.getItem('token')}`}
         }
     }
-    changeHandler=(e)=>{
+    inputHandler=(e)=>{
         this.setState({
             [e.target.name] : e.target.value
         })
     }
+    fileHandler = (e)=>{
+        this.setState({
+            file : e.target.files[0]
+        })
+    }
     UploadNote=(e)=>{
         e.preventDefault();
-        Axios.post("http://localhost:90/upload/note/with/file",this.state)
+        const data = new FormData() // new line
+        data.append('file', this.state.file)
+        data.append('level', this.state.level)
+        data.append('subject', this.state.subject)
+        data.append('c_name', this.state.c_name)
+        data.append('topic', this.state.topic)
+        data.append('description', this.state.c_name)
+        data.append('userId', localStorage.getItem('id'))
+        Axios.post("http://localhost:90/upload/note/with/file",data,this.state.config)
         .then((response)=>{
             console.log(response.data);
+            console.log({'authorization': `Bearer ${localStorage.getItem('token')}`})
             alert("OK")
         })        
         .catch((err)=>{
@@ -37,32 +51,32 @@ export class UploadNote extends Component {
                 <h3>Upload Note</h3>
                 <Form>
                     <Form.Group>
-                        <Form.File type="file" id="exampleFormControlFile1" label="Select File" name="file" value={this.setState.file} onChange={this.changeHandler} />
+                        <Form.File type="file" id="exampleFormControlFile1" label="Select File" name="file" onChange={this.fileHandler} />
                     </Form.Group>
                     <Form.Group >
                         <Form.Label>Level</Form.Label>
-                        <Form.Control type="text" className="form-control" name="level" value={this.setState.level} onChange={this.changeHandler}
+                        <Form.Control type="text" className="form-control" name="level" value={this.state.level} onChange={this.inputHandler}
                             placeholder="Enter the level." />
                     </Form.Group>
                     <Form.Group >
                         <Form.Label>Subject</Form.Label>
-                        <Form.Control type="text" className="form-control" name="subject" value={this.setState.subject} onChange={this.changeHandler}
+                        <Form.Control type="text" className="form-control" name="subject" value={this.state.subject} onChange={this.inputHandler}
                             placeholder="Enter the subject." />
                     </Form.Group>
                     <Form.Group >
                         <Form.Label>University/college Name</Form.Label>
-                        <Form.Control type="text" className="form-control" name="c_name" value={this.setState.c_name} onChange={this.changeHandler}
+                        <Form.Control type="text" className="form-control" name="c_name" value={this.state.c_name} onChange={this.inputHandler}
                             placeholder="Enter College/university name." />
                     </Form.Group>
 
                     <Form.Group >
                         <Form.Label>Topic</Form.Label>
-                        <Form.Control type="text" name="topic" value={this.setState.topic} onChange={this.changeHandler} placeholder="Enter topic" />
+                        <Form.Control type="text" name="topic" value={this.state.topic} onChange={this.inputHandler} placeholder="Enter topic" />
                     </Form.Group>
 
                     <Form.Group >
                         <Form.Label>Description</Form.Label>
-                        <Form.Control type="text"rows="4" name="description" value={this.setState.description} onChange={this.changeHandler} placeholder="Descriptiion" />
+                        <Form.Control type="text"rows="4" name="description" value={this.state.description} onChange={this.inputHandler} placeholder="Descriptiion" />
                     </Form.Group>
 
                     <Button className="btn btn-dark btn-lg btn-block" variant="primary" type="submit" onClick={this.UploadNote}>

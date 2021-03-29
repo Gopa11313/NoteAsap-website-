@@ -40,9 +40,21 @@ export class Navigation extends Component {
                                     <Link to="/contact">Contact</Link>
                                 </Nav.Link>
                             </Nav.Item>
+                            
                             <Nav.Item>
                                 <Nav.Link>
                                     <Link to="/upload">UploadNotes</Link>
+                                </Nav.Link>
+                            </Nav.Item>
+
+                            <Nav.Item>
+                                <Nav.Link>
+                                    <Link to="/upload">MyNotes</Link>
+                                </Nav.Link>
+                            </Nav.Item>
+                            <Nav.Item>
+                                <Nav.Link>
+                                    <Link to="/upload" className="text-primary">MyAccount</Link>
                                 </Nav.Link>
                             </Nav.Item>
                         </Nav>

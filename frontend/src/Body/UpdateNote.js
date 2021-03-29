@@ -21,7 +21,7 @@ export class UpdateNote extends Component {
         })
     }
     componentDidMount() {
-        Axios.get("http://localhost:90/note/by/notid/" + this.state.id)
+        Axios.get("http://localhost:90/note/by/notid/web/" + this.state.id,this.state.config)
             .then((response) => {
                 console.log(response.data.data)
                 this.setState({
