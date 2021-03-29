@@ -11,6 +11,7 @@ import {Login}  from './Pages/Login'
 import {Signup} from './Pages/Signup'
 import {UpdateNote} from './Body/UpdateNote'
 import {UploadNote} from './Body/UploadNote'
+import {MyNotes} from './Body/MyNotes'
 import React from 'react';
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path="/signup" component={Signup} />
             <Route path="/upload" component={UploadNote} />
             <Route path="/updateNote/:id" component={UpdateNote} />
+            <Route path="/mynotes" component={MyNotes}/>
             <Route component={NoMatch} />
           </Switch>
       </BrowserRouter>

@@ -1,6 +1,5 @@
 import { Component } from "react";
 import Axios from "axios"
-import axios from "axios";
 import { Card, Button } from 'react-bootstrap'
 import notes from '../assets/notes.png'
 import styled from 'styled-components';
@@ -17,19 +16,23 @@ const Styles = styled.div`
     backgroundImage: "${notes}",
   })
 `;
-class Display extends Component {
+export class MyNotes extends Component {
     state = {
-        notes: [],
+        ownnotes: [],
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
-        }
-
+        },
+        userId:localStorage.getItem('id')
+       
     }
     componentDidMount() {
-        axios.get("http://localhost:90/get/notes")
+        console.log(this.state.userId)
+        console.log(this.state.config)
+        Axios.get("http://localhost:90/get/Ownnotes/web/"+this.state.userId,this.state.config)
             .then((response) => {
+                console.log(response.data.data)
                 this.setState({
-                    notes: response.data.data
+                    ownnotes: response.data.data
                 })
             })
             .catch((err) => {
@@ -42,19 +45,19 @@ class Display extends Component {
             <div className="container">
                 <div className="row">
                     {
-                        this.state.notes.map((b) => {
+                        this.state.ownnotes.map((a) => {
                             return (
                                 <div className="col-md-4" style={{padding:50}}>
                                     <Styles>
                                         <Card style={{ width: '20rem',padding:10}}>
                                             <Card.Img variant="top" src={notes} />
                                             <Card.Body>
-                                                <Card.Title>{b.topic}</Card.Title>
+                                                <Card.Title>{a.topic}</Card.Title>
                                                 <Card.Text>
-                                                    {b.description}
+                                                    {a.description}
                                                 </Card.Text>
-                                                <Button variant="primary">Open</Button>
-                                                {/* <p variant="primary" ><Link to={'/updateNote/'+b._id}>Update</Link> </p> */}
+                                                <Button variant="primary">Delete</Button>
+                                                <p variant="primary" ><Link to={'/updateNote/'+a._id}>Update</Link> </p>
                                                 
                                             </Card.Body>
                                             <Card.Footer>
@@ -74,4 +77,4 @@ class Display extends Component {
         )
     }
 }
-export default Display;
+export default MyNotes;

@@ -45,6 +45,7 @@ export class Login extends Component {
                 console.log(response.data.id);
                 localStorage.setItem('token',response.data.token)
                 localStorage.setItem('id',response.data.id)
+                window.location.href = "/";
             })
             .catch((err) => {
                 console.log(err.response)
@@ -73,7 +74,7 @@ export class Login extends Component {
                         </div>
                     </div>
 
-                    <button type="submit" onClick={this.loginuser} className="btn btn-primary btn-block">Submit</button>
+                    <button type="submit" onClick={this.loginuser}  className="btn btn-primary btn-block">Submit</button>
                     <p className="forgot-password text-right">
                         Forgot <a href="#">password?</a>
                     </p>
