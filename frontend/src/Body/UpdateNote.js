@@ -15,13 +15,18 @@ export class UpdateNote extends Component {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         }
     }
-    changeHandler = (e) => {
+    inputHandler = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
     }
+    fileHandler = (e) => {
+        this.setState({
+            file: e.target.files[0]
+        })
+    }
     componentDidMount() {
-        Axios.get("http://localhost:90/note/by/notid/web/" + this.state.id,this.state.config)
+        Axios.get("http://localhost:90/note/by/notid/web/" + this.state.id, this.state.config)
             .then((response) => {
                 console.log(response.data.data)
                 this.setState({
@@ -38,9 +43,20 @@ export class UpdateNote extends Component {
     }
     updateNote = (e) => {
         e.preventDefault();
-        Axios.put('http://localhost:90/Update/note', this.state)
+        const data = new FormData() // new line
+        data.append('file', this.state.file)
+        data.append('level', this.state.level)
+        data.append('subject', this.state.subject)
+        data.append('c_name', this.state.c_name)
+        data.append('topic', this.state.topic)
+        data.append('description', this.state.c_name)
+        data.append('userId', localStorage.getItem('id'))
+        data.append('id', this.props.match.params.id)
+        Axios.put('http://localhost:90/Update/note/web' ,data, this.state.config)
             .then((response) => {
+                alert("successfully Updated!!")
                 console.log(response)
+                window.location.href = "/mynotes";
             })
             .catch((err) => {
                 console.log(err.response)
@@ -52,33 +68,33 @@ export class UpdateNote extends Component {
             <Container style={{ "width": "40%" }}>
                 <h3>UpdateNote</h3>
                 <Form>
-                    <Form.Group>
-                        <Form.File type="file" id="exampleFormControlFile1" label="Select File" name="file" value={this.state.file} onChange={this.changeHandler} />
+                <Form.Group>
+                        <Form.File type="file" id="exampleFormControlFile1" label="Select File" name="file" onChange={this.fileHandler} />
                     </Form.Group>
                     <Form.Group >
                         <Form.Label>Level</Form.Label>
-                        <Form.Control type="text" className="form-control" name="level" value={this.state.level} onChange={this.changeHandler}
-                         />
+                        <Form.Control type="text" className="form-control" name="level" value={this.state.level} onChange={this.inputHandler}
+                        />
                     </Form.Group>
                     <Form.Group >
                         <Form.Label>Subject</Form.Label>
-                        <Form.Control type="text" className="form-control" name="subject" value={this.state.subject} onChange={this.changeHandler}
-                             />
+                        <Form.Control type="text" className="form-control" name="subject" value={this.state.subject} onChange={this.inputHandler}
+                        />
                     </Form.Group>
                     <Form.Group >
                         <Form.Label>University/college Name</Form.Label>
-                        <Form.Control type="text" className="form-control" name="c_name" value={this.state.c_name} onChange={this.changeHandler}
-                             />
+                        <Form.Control type="text" className="form-control" name="c_name" value={this.state.c_name} onChange={this.inputHandler}
+                        />
                     </Form.Group>
 
                     <Form.Group >
                         <Form.Label>Topic</Form.Label>
-                        <Form.Control type="text" name="topic" value={this.state.topic} onChange={this.changeHandler}  />
+                        <Form.Control type="text" name="topic" value={this.state.topic} onChange={this.inputHandler} />
                     </Form.Group>
 
                     <Form.Group >
                         <Form.Label>Description</Form.Label>
-                        <Form.Control type="textarea" rows="4" name="description" value={this.state.description} onChange={this.changeHandler} placeholder="Descriptiion" />
+                        <Form.Control type="textarea" rows="4" name="description" value={this.state.description} onChange={this.inputHandler} placeholder="Descriptiion" />
                     </Form.Group>
 
                     <Button className="btn btn-dark btn-lg btn-block" variant="primary" type="submit" onClick={this.updateNote}>

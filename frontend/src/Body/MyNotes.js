@@ -26,31 +26,30 @@ export class MyNotes extends Component {
         userId: localStorage.getItem('id')
 
     }
-    deletenotes=(ab)=>{
-        Axios.delete("http://localhost:90/delete/note/" +ab, this.state.config)
+    componentDidMount() {
+        Axios.get("http://localhost:90/get/Ownnotes/web/" + this.state.userId, this.state.config)
             .then((response) => {
                 console.log(response.data.data)
                 this.setState({
                     ownnotes: response.data.data
                 })
+                // console.log(response)
+            })
+            .catch((err) => {
+                console.log(err.response)
+            })
+    }
+    deletenotes=(ab)=>{
+        Axios.delete("http://localhost:90/delete/note/" +ab, this.state.config)
+            .then((response) => {
+                console.log(response.data.data)
                 console.log(ab)
             })
             .catch((err) => {
                 console.log(err.response)
             })
     }
-    componentDidMount() {
-        Axios.get("http://localhost:90/get/Ownnotes/web/" + this.state.userId, this.state.config)
-            .then((response) => {
-                // console.log(response.data.data)
-                this.setState({
-                    ownnotes: response.data.data
-                })
-            })
-            .catch((err) => {
-                console.log(err.response)
-            })
-    }
+    
     render() {
         return (
             <>
@@ -69,9 +68,8 @@ export class MyNotes extends Component {
                                                         <Card.Text>
                                                             {a.description}
                                                         </Card.Text>
-                                                        <Button variant="primary" onClick={this.deletenotes(a._id)}>Delete</Button>
                                                         <p variant="primary" ><Link to={'/updateNote/' + a._id}>Update</Link> </p>
-
+                                                        {/* <Button variant="primary" onClick={this.deletenotes(a._id)}>Delete</Button> */}
                                                     </Card.Body>
                                                     <Card.Footer>
                                                         <small className="text-muted">Last updated 3 mins ago</small>
