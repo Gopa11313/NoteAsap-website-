@@ -40,10 +40,10 @@ export class Bookmarked extends Component {
             
     }
     deletenotes=(ab)=>{
-        Axios.delete("http://localhost:90/delete/note/" +ab, this.state.config)
+        Axios.delete("http://localhost:90/delete/bookmark/" +ab, this.state.config)
             .then((response) => {
                 console.log(response.data.data)
-                window.location.href = "/mynotes";
+                window.location.href = "/bookmark";
             })
             .catch((err) => {
                 console.log(err.response)
@@ -66,9 +66,8 @@ export class Bookmarked extends Component {
                                                 <Card.Text>
                                                     {c.description}
                                                 </Card.Text>
-                                                <Button variant="primary">Open</Button>
-                                                <p variant="primary" ><Link to={'/updateNote/'+b._id}>Remove Bookmarked</Link> </p>
-                                                
+                                                {/* <Button variant="primary">Open</Button> */}
+                                                <Button variant="primary"onClick={this.deletenotes.bind(this,c.noteId)}>Remove Bookmarked</Button>
                                             </Card.Body>
                                             <Card.Footer>
                                                 <small className="text-muted">Last updated 3 mins ago</small>
