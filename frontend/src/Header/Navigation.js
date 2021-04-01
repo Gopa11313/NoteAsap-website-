@@ -57,6 +57,11 @@ export class Navigation extends Component {
                     </Nav.Item>
                     <Nav.Item>
                         <Nav.Link>
+                            <Link to="/bookmark">Bookmarked</Link>
+                        </Nav.Link>
+                    </Nav.Item>
+                    <Nav.Item>
+                        <Nav.Link>
                             <Link to="/account" className="text-primary">MyAccount</Link>
                         </Nav.Link>
                     </Nav.Item>

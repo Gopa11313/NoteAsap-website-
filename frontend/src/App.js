@@ -13,6 +13,7 @@ import {UpdateNote} from './Body/UpdateNote'
 import {UploadNote} from './Body/UploadNote'
 import {MyNotes} from './Body/MyNotes'
 import {Account} from './Body/Account'
+import {Bookmarked} from './Body/Bookmarked'
 import React from 'react';
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
             <Route path="/upload" component={UploadNote} />
             <Route path="/updateNote/:id" component={UpdateNote} />
             <Route path="/mynotes" component={MyNotes}/>
+            <Route path="/bookmark" component={Bookmarked}/>
             <Route path="/account" component={Account}/>
             <Route component={NoMatch} />
           </Switch>
