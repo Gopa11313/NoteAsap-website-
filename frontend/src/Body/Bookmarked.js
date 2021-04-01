@@ -22,15 +22,28 @@ export class Bookmarked extends Component {
         notes: [],
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
-        }
+        },
+        id:localStorage.getItem('id')
 
     }
+
     componentDidMount() {
-        axios.get("http://localhost:90/get/notes")
+        axios.get("http://localhost:90/bookmark/notes/"+this.state.id,this.state.config)
             .then((response) => {
                 this.setState({
                     notes: response.data.data
                 })
+            })
+            .catch((err) => {
+                console.log(err.response)
+            })
+            
+    }
+    deletenotes=(ab)=>{
+        Axios.delete("http://localhost:90/delete/note/" +ab, this.state.config)
+            .then((response) => {
+                console.log(response.data.data)
+                window.location.href = "/mynotes";
             })
             .catch((err) => {
                 console.log(err.response)
@@ -42,19 +55,19 @@ export class Bookmarked extends Component {
             <div className="container">
                 <div className="row">
                     {
-                        this.state.notes.map((b) => {
+                        this.state.notes.map((c) => {
                             return (
                                 <div className="col-md-4" style={{padding:50}}>
                                     <Styles>
                                         <Card style={{ width: '20rem',padding:10}}>
                                             <Card.Img variant="top" src={notes} />
                                             <Card.Body>
-                                                <Card.Title>{b.topic}</Card.Title>
+                                                <Card.Title>{c.topic}</Card.Title>
                                                 <Card.Text>
-                                                    {b.description}
+                                                    {c.description}
                                                 </Card.Text>
                                                 <Button variant="primary">Open</Button>
-                                                {/* <p variant="primary" ><Link to={'/updateNote/'+b._id}>Update</Link> </p> */}
+                                                <p variant="primary" ><Link to={'/updateNote/'+b._id}>Remove Bookmarked</Link> </p>
                                                 
                                             </Card.Body>
                                             <Card.Footer>
