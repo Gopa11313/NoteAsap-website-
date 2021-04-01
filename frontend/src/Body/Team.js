@@ -25,8 +25,8 @@ const Team = () => {
                 className="rounded-circle z-depth-1 img-fluid"
                 alt="Sample avatar"
               />
-              <h5 className="font-weight-bold mt-4 mb-3">Anna Williams</h5>
-              <p className="text-uppercase blue-text">Graphic designer</p>
+              <h5 className="font-weight-bold mt-4 mb-3">Gopal Thapa</h5>
+              <p className="text-uppercase blue-text">Manager</p>
               <p className="grey-text">
                 Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
                 consectetur, adipisci sed quia non numquam modi tempora eius.
@@ -51,8 +51,8 @@ const Team = () => {
                 className="rounded-circle z-depth-1 img-fluid"
                 alt="Sample avatar"
               />
-              <h5 className="font-weight-bold mt-4 mb-3">John Doe</h5>
-              <p className="text-uppercase blue-text">Web Developer</p>
+              <h5 className="font-weight-bold mt-4 mb-3">Binod Sharma</h5>
+              <p className="text-uppercase blue-text">Graphic Designer</p>
               <p className="grey-text">
                 Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                 ipsa accusantium doloremque rem laudantium totam aperiam.
@@ -100,8 +100,8 @@ const Team = () => {
                 className="rounded-circle z-depth-1 img-fluid"
                 alt="Sample avatar"
               />
-              <h5 className="font-weight-bold mt-4 mb-3">Tom Adams</h5>
-              <p className="text-uppercase blue-text">Backend Developer</p>
+              <h5 className="font-weight-bold mt-4 mb-3">Abhisek Thapa</h5>
+              <p className="text-uppercase blue-text">Web Developer</p>
               <p className="grey-text">
                 Perspiciatis repellendus ad odit consequuntur, eveniet earum
                 nisi qui consectetur totam officia voluptates perferendis
