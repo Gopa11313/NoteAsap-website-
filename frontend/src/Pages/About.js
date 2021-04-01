@@ -4,6 +4,7 @@ import Footer from '../Footer/Footer'
 import books from '../assets/books.png'
 import note2 from '../assets/notes2.jpg'
 import note3 from '../assets/notes3.jpg'
+import Team from '../Body/Team'
 export const About = () => (
     <>
         <Container className="mb-4">
@@ -39,6 +40,7 @@ export const About = () => (
             </div>
 
         </Container>
+        <Team/>
         <Footer />
     </>
 )

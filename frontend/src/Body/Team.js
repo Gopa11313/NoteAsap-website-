@@ -25,6 +25,7 @@ const Team = () => {
                 src={team1}
                 className="rounded-circle z-depth-1 img-fluid"
                 alt="Sample avatar"
+                style={{width:"200px"}}
               />
               <h5 className="font-weight-bold mt-4 mb-3">Gopal Thapa</h5>
               <p className="text-uppercase blue-text">Manager</p>
@@ -51,6 +52,7 @@ const Team = () => {
                 src={team2}
                 className="rounded-circle z-depth-1 img-fluid"
                 alt="Sample avatar"
+                style={{width:"200px"}}
               />
               <h5 className="font-weight-bold mt-4 mb-3">Binod Sharma</h5>
               <p className="text-uppercase blue-text">Graphic Designer</p>
@@ -74,6 +76,7 @@ const Team = () => {
                 src={team3}
                 className="rounded-circle z-depth-1 img-fluid"
                 alt="Sample avatar"
+                style={{width:"200px"}}
               />
               <h5 className="font-weight-bold mt-4 mb-3">Maria Smith</h5>
               <p className="text-uppercase blue-text">Photographer</p>
@@ -100,6 +103,7 @@ const Team = () => {
                 src={team4}
                 className="rounded-circle z-depth-1 img-fluid"
                 alt="Sample avatar"
+                style={{width:"200px"}}
               />
               <h5 className="font-weight-bold mt-4 mb-3">Abhisek Thapa</h5>
               <p className="text-uppercase blue-text">Web Developer</p>
