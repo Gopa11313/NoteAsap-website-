@@ -1,4 +1,8 @@
 import React from "react";
+import team1 from '../assets/team1.jpg'
+import team2 from '../assets/team2.jpg'
+import team3 from '../assets/team3.jpg'
+import team4 from '../assets/team4.jpg'
 import {  MDBRow, MDBCol, MDBCard, MDBAvatar, MDBCardBody, MDBIcon } from "mdbreact";
 
 const Team = () => {
@@ -15,9 +19,9 @@ const Team = () => {
           </p>
           <MDBRow>
             <MDBCol lg="3" md="6" className="mb-lg-0 mb-5">
-              <MDBAvatar
+              <img
                 tag="img"
-                src="https://mdbootstrap.com/img/Photos/Avatars/img%20(20).jpg"
+                src={team1}
                 className="rounded-circle z-depth-1 img-fluid"
                 alt="Sample avatar"
               />
@@ -41,9 +45,9 @@ const Team = () => {
             </MDBCol>
 
             <MDBCol lg="3" md="6" className="mb-lg-0 mb-5">
-              <MDBAvatar
+              <img
                 tag="img"
-                src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg"
+                src={team2}
                 className="rounded-circle z-depth-1 img-fluid"
                 alt="Sample avatar"
               />
@@ -64,9 +68,9 @@ const Team = () => {
             </MDBCol>
 
             <MDBCol lg="3" md="6" className="mb-lg-0 mb-5">
-              <MDBAvatar
+              <img
                 tag="img"
-                src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg"
+                src={team3}
                 className="rounded-circle z-depth-1 img-fluid"
                 alt="Sample avatar"
               />
@@ -90,9 +94,9 @@ const Team = () => {
             </MDBCol>
 
             <MDBCol lg="3" md="6" className="mb-lg-0 mb-5">
-              <MDBAvatar
+              <img
                 tag="img"
-                src="https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg"
+                src={team4}
                 className="rounded-circle z-depth-1 img-fluid"
                 alt="Sample avatar"
               />

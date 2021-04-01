@@ -5,7 +5,7 @@ import notes from '../assets/notes.png'
 import styled from 'styled-components';
 import heading1 from '../assets/heading1.png'
 import Footer from '../Footer/Footer'
-// import Team from '../Body/Team'
+import Team from '../Body/Team'
 import { Link } from "react-router-dom";
 const Styles = styled.div`
   .Background = styled.div({
@@ -112,7 +112,7 @@ export class Account extends Component {
                     </Button>
                     </Form>
                 </Container>
-                {/* <Team/> */}
+                <Team/>
                 <Footer />
             </>
         )
