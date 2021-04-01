@@ -8,7 +8,7 @@ import Team from '../Body/Team'
 export const About = () => (
     <>
         <Container className="mb-4">
-            <div className="row featurette" style={{ display: "flex" }}>
+            <div className="row featurette" style={{ display: "flex"}}>
                 <div className="col-md-7">
                     <h2 className="featurette-heading">First featurette heading. <span class="text-muted">It'll blow your mind.</span></h2>
                     <p className="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>

@@ -1,6 +1,9 @@
 import React from 'react'
+import Team from '../Body/Team'
+import Footer from '../Footer/Footer'
 export const Contact = () => (
-    <div>
-        <h1>This is contact page</h1>
-    </div>
+    <>
+        <Team />
+        <Footer />
+    </>
 )
