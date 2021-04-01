@@ -5,6 +5,7 @@ import notes from '../assets/notes.png'
 import styled from 'styled-components';
 import heading1 from '../assets/heading1.png'
 import Footer from '../Footer/Footer'
+// import Team from '../Body/Team'
 import { Link } from "react-router-dom";
 const Styles = styled.div`
   .Background = styled.div({
@@ -46,7 +47,7 @@ export class Account extends Component {
                 this.setState({
                     name1: response.data.data.name,
                     email: response.data.data.email,
-                    file: response.data.data.file
+                    file: response.data.data.image
                 })
                 console.log(this.state)
             })
@@ -79,7 +80,8 @@ export class Account extends Component {
                 <Container className="d-flex justify-content-center mb-4" style={{ width: '40%' }}>
                     <Form style={{ width: '100%' }}>
                         <Form.Group className="d-flex justify-content-center">
-                            <img type="text" className="rounded-circle" src={heading1}
+                            <img type="text" className="rounded-circle" src={"http://localhost:90/images/"
+                            +this.state.file}
                                 width="150px" height="150px" />
                         </Form.Group>
                         <Form.Group>
@@ -110,6 +112,7 @@ export class Account extends Component {
                     </Button>
                     </Form>
                 </Container>
+                {/* <Team/> */}
                 <Footer />
             </>
         )
