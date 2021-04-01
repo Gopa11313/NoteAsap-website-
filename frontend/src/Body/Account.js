@@ -20,9 +20,9 @@ const Styles = styled.div`
 `;
 export class Account extends Component {
     state = {
-        "name1":"",
-        "email":"",
-        "image":"",
+        "name1": "",
+        "email": "",
+        file: "",
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         },
@@ -44,9 +44,9 @@ export class Account extends Component {
             .then((response) => {
                 console.log(response.data.data)
                 this.setState({
-                    name1:response.data.data.name,
-                    email:response.data.data.email,
-                    image:response.data.data.image
+                    name1: response.data.data.name,
+                    email: response.data.data.email,
+                    file: response.data.data.file
                 })
                 console.log(this.state)
             })
@@ -55,19 +55,19 @@ export class Account extends Component {
             })
     }
 
-    updateProfile= (e) => {
+    updateProfile = (e) => {
         e.preventDefault();
         const data1 = new FormData() // new line
         data1.append('id', localStorage.getItem('id'))
         data1.append('name', this.state.name1)
         data1.append('email', this.state.email)
         data1.append('password', this.state.password)
-        data1.append('image', this.state.image)
-        Axios.put('http://localhost:90/user/update' ,data1, this.state.config)
+        data1.append('file', this.state.file)
+        Axios.put('http://localhost:90/user/update', data1, this.state.config)
             .then((response) => {
                 alert("successfully Updated!!")
                 console.log(response)
-                window.location.href = "/account";
+                // window.location.href = "/account";
             })
             .catch((err) => {
                 console.log(err.response)
@@ -76,17 +76,19 @@ export class Account extends Component {
     render() {
         return (
             <>
-                <Container className="d-flex justify-content-center mb-4" style={{width:'40%'}}>
-                    <Form style={{width:'100%'}}>
+                <Container className="d-flex justify-content-center mb-4" style={{ width: '40%' }}>
+                    <Form style={{ width: '100%' }}>
                         <Form.Group className="d-flex justify-content-center">
                             <img type="text" className="rounded-circle" src={heading1}
                                 width="150px" height="150px" />
-                                
+                        </Form.Group>
+                        <Form.Group>
+                            <Form.File type="file" id="exampleFormControlFile1" label="Select image" name="file" onChange={this.fileHandler} />
                         </Form.Group>
                         <Form.Group >
                             <Form.Label>Full name</Form.Label>
                             <Form.Control type="text" className="form-control" name="name1" value={this.state.name1} onChange={this.inputHandler}
-                               placeholder="Enter your Name"  />
+                                placeholder="Enter your Name" />
                         </Form.Group>
                         <Form.Group >
                             <Form.Label>Email address</Form.Label>
@@ -102,7 +104,7 @@ export class Account extends Component {
                         <Form.Group >
                             <Form.Label>Con-Password</Form.Label>
                             <Form.Control type="password" name="con-password" value={this.state.con_password} onChange={this.inputHandler} placeholder="Con-Password" />
-                        </Form.Group> 
+                        </Form.Group>
                         <Button className="btn btn-dark btn-lg btn-block" variant="primary" type="submit" onClick={this.updateProfile}>
                             Update
                     </Button>
