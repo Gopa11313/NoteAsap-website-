@@ -5,7 +5,7 @@ import { Card, Button } from 'react-bootstrap'
 import notes from '../assets/notes.png'
 import styled from 'styled-components';
 import { Link } from "react-router-dom";
-import Team from '../Body/Team'
+import Team from './Team'
 import Footer from '../Footer/Footer'
 const Styles = styled.div`
   .Background = styled.div({
