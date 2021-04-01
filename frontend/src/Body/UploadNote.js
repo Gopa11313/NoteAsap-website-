@@ -36,9 +36,11 @@ export class UploadNote extends Component {
         data.append('userId', localStorage.getItem('id'))
         Axios.post("http://localhost:90/upload/note/with/file",data,this.state.config)
         .then((response)=>{
-            console.log(response.data);
-            console.log({'authorization': `Bearer ${localStorage.getItem('token')}`})
-            alert("OK")
+            // console.log(response.data);
+            // console.log({'authorization': `Bearer ${localStorage.getItem('token')}`})
+            // alert("OK")
+            window.location.href = "/upload";
+            alert("successfully uplodaed!")
         })        
         .catch((err)=>{
             console.log(err.response)

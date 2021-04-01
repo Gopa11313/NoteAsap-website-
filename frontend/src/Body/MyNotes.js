@@ -43,7 +43,7 @@ export class MyNotes extends Component {
         Axios.delete("http://localhost:90/delete/note/" +ab, this.state.config)
             .then((response) => {
                 console.log(response.data.data)
-                console.log(ab)
+                window.location.href = "/mynotes";
             })
             .catch((err) => {
                 console.log(err.response)
@@ -69,7 +69,7 @@ export class MyNotes extends Component {
                                                             {a.description}
                                                         </Card.Text>
                                                         <p variant="primary" ><Link to={'/updateNote/' + a._id}>Update</Link> </p>
-                                                        {/* <Button variant="primary" onClick={this.deletenotes(a._id)}>Delete</Button> */}
+                                                        <Button variant="primary" onClick={this.deletenotes.bind(this,a._id)}>Delete</Button>
                                                     </Card.Body>
                                                     <Card.Footer>
                                                         <small className="text-muted">Last updated 3 mins ago</small>
