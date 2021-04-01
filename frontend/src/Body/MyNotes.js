@@ -4,6 +4,7 @@ import { Card, Button } from 'react-bootstrap'
 import notes from '../assets/notes.png'
 import styled from 'styled-components';
 import Footer from '../Footer/Footer'
+import Team from './Team'
 import { Link } from "react-router-dom";
 const Styles = styled.div`
   .Background = styled.div({
@@ -88,6 +89,7 @@ export class MyNotes extends Component {
                         </div>
                     </div>
                 </div>
+                <Team/>
                 <Footer />
             </>
         )

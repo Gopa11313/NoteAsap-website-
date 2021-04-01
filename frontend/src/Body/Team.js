@@ -30,7 +30,7 @@ const Team = () => {
               <h5 className="font-weight-bold mt-4 mb-3">Gopal Thapa</h5>
               <p className="text-uppercase blue-text">Manager</p>
               <p className="grey-text">
-                Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet,
+                First of all, thanks for your attention, concern and support.,
                 consectetur, adipisci sed quia non numquam modi tempora eius.
               </p>
               <ul className="list-unstyled mb-0">
