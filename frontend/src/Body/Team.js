@@ -4,6 +4,7 @@ import team2 from '../assets/team2.jpg'
 import team3 from '../assets/team3.jpg'
 import team4 from '../assets/team4.jpg'
 import {  MDBRow, MDBCol, MDBCard, MDBAvatar, MDBCardBody, MDBIcon } from "mdbreact";
+import { Facebook, Twitter, Google, Linkedin, Instagram, Github } from 'react-bootstrap-icons'
 
 const Team = () => {
   return (
@@ -33,13 +34,13 @@ const Team = () => {
               </p>
               <ul className="list-unstyled mb-0">
                 <a href="#!" className="p-2 fa-lg">
-                  <MDBIcon fab icon="facebook-f" className="blue-text" />
+                <Facebook/>
                 </a>
                 <a href="#!" className="p-2 fa-lg">
-                  <MDBIcon fab icon="twitter" className="blue-text" />
+                  <Twitter/>
                 </a>
                 <a href="#!" className="p-2 fa-lg">
-                  <MDBIcon fab icon="instagram" className="blue-text" />
+                  <Instagram/>
                 </a>
               </ul>
             </MDBCol>
@@ -59,10 +60,10 @@ const Team = () => {
               </p>
               <ul className="list-unstyled mb-0">
                 <a href="#!" className="p-2 fa-lg">
-                  <MDBIcon fab icon="facebook-f" className="blue-text" />
+                  <Facebook/>
                 </a>
                 <a href="#!" className="p-2 fa-lg">
-                  <MDBIcon fab icon="instagram" className="blue-text" />
+                  <Twitter/>
                 </a>
               </ul>
             </MDBCol>
@@ -82,13 +83,13 @@ const Team = () => {
               </p>
               <ul className="list-unstyled mb-0">
                 <a href="#!" className="p-2 fa-lg">
-                  <MDBIcon fab icon="facebook-f" className="blue-text" />
+                  <Facebook/>
                 </a>
                 <a href="#!" className="p-2 fa-lg">
-                  <MDBIcon fab icon="instagram" className="blue-text" />
+                  <Instagram/>
                 </a>
                 <a href="#!" className="p-2 fa-lg">
-                  <MDBIcon fab icon="dribbble" className="blue-text" />
+                  <Twitter/>
                 </a>
               </ul>
             </MDBCol>
@@ -109,10 +110,10 @@ const Team = () => {
               </p>
               <ul className="list-unstyled mb-0">
                 <a href="#!" className="p-2 fa-lg">
-                  <MDBIcon fab icon="facebook-f" className="blue-text" />
+                  <Facebook/>
                 </a>
                 <a href="#!" className="p-2 fa-lg">
-                  <MDBIcon fab icon="github" className="blue-text" />
+                  <Github/>
                 </a>
               </ul>
             </MDBCol>
