@@ -9,6 +9,7 @@ export class UploadNote extends Component {
         c_name:"",
         topic:"",
         description:"",
+        noofRating:"0",
         userId:localStorage.getItem('id'),
         config : {
             headers : {'authorization': `Bearer ${localStorage.getItem('token')}`}
@@ -33,6 +34,7 @@ export class UploadNote extends Component {
         data.append('c_name', this.state.c_name)
         data.append('topic', this.state.topic)
         data.append('description', this.state.c_name)
+        data.append('noofRating', this.state.noofRating)
         data.append('userId', localStorage.getItem('id'))
         Axios.post("http://localhost:90/upload/note/with/file",data,this.state.config)
         .then((response)=>{
