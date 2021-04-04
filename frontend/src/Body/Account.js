@@ -23,6 +23,7 @@ export class Account extends Component {
         "name1": "",
         "email": "",
         file: "",
+        image: "",
         config: {
             headers: { 'authorization': `Bearer ${localStorage.getItem('token')}` }
         },
@@ -46,7 +47,7 @@ export class Account extends Component {
                 this.setState({
                     name1: response.data.data.name,
                     email: response.data.data.email,
-                    file: response.data.data.image
+                    image: response.data.data.image
                 })
                 console.log(this.state)
             })
@@ -65,9 +66,8 @@ export class Account extends Component {
         data1.append('file', this.state.file)
         Axios.put('http://localhost:90/user/update', data1, this.state.config)
             .then((response) => {
-                alert("successfully Updated!!")
                 console.log(response)
-                // window.location.href = "/account";
+                 window.location.href = "/account";
             })
             .catch((err) => {
                 console.log(err.response)
@@ -80,7 +80,7 @@ export class Account extends Component {
                     <Form style={{ width: '100%' }}>
                         <Form.Group className="d-flex justify-content-center">
                             <img type="text" className="rounded-circle" src={"http://localhost:90/images/"
-                            +this.state.file}
+                            +this.state.image}
                                 width="150px" height="150px" />
                         </Form.Group>
                         <Form.Group>
