@@ -40,13 +40,15 @@ class Display extends Component {
     }
     Bookmark = (ab) => {
         if (localStorage.getItem('token')) {
-            const data = new FormData() // new line
-            data.append('noteId', ab)
-            data.append('userId', localStorage.getItem('id'))
+            const data = { // new line
+                noteId: ab,
+                userId: localStorage.getItem('id')
+            }
+            console.log(data)
             axios.post("http://localhost:90/note/bookmark", data, this.state.config)
-                .then((response) => {
+                .then(() => {
                     alert("you have successfully bookmarked this note")
-                    window.location.href = "/";
+                    // window.location.href = "/";
                 })
                 .catch((err) => {
                     console.log(err.response)
@@ -73,7 +75,7 @@ class Display extends Component {
                                                     <Card.Text>
                                                         {b.description}
                                                     </Card.Text>
-                                                    <Button variant="primary" onClick={this.Bookmark.bind(b._id)}>Bookmark</Button>
+                                                    <Button variant="primary" onClick={this.Bookmark.bind(this,b._id)}>Bookmark</Button>
                                                     {/* <p variant="primary" ><Link to={'/updateNote/'+b._id}>Update</Link> </p> */}
 
                                                 </Card.Body>

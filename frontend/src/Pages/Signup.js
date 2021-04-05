@@ -26,7 +26,7 @@ export class Signup extends Component {
         Axios.post("http://localhost:90/user/add",data)
         .then((response)=>{
             alert("successfully register!")
-            window.location.href = "signup";
+            window.location.href = "/signUp";
         })        
         .catch((err)=>{
             console.log(err.response)
