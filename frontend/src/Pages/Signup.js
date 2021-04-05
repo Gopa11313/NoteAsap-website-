@@ -2,6 +2,7 @@ import { Component } from "react";
 import { Container, Form, Button } from 'react-bootstrap'
 import Footer from '../Footer/Footer'
 import Axios from 'axios'
+import { ArrowLeftSquare } from "react-bootstrap-icons";
 export class Signup extends Component {
     state={
         name1:"",
@@ -24,8 +25,8 @@ export class Signup extends Component {
         e.preventDefault();
         Axios.post("http://localhost:90/user/add",data)
         .then((response)=>{
-            console.log(response);
-            alert("OK")
+            alert("successfully register!")
+            window.location.href = "signup";
         })        
         .catch((err)=>{
             console.log(err.response)
