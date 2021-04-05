@@ -54,7 +54,7 @@ export class Login extends Component {
     render() {
         return (
             <React.Fragment>
-                <form className="container-sm rounded" style={{ 'width': '40%',"border":"1px solid"}}>
+                <form className="container-sm rounded mb-3" style={{ 'width': '40%',"border":"1px solid"}}>
                     <h3>Sign In</h3>
 
                     <div className="form-group">
