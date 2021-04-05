@@ -36,7 +36,7 @@ export class Signup extends Component {
     render() {
         return (
             <>
-            <Container style={{"width":"40%"}}>
+            <Container className="rounded mb-3" style={{ 'width': '40%',"border":"1px solid"}}>
                 <h3>Register</h3>
                 <Form>
                 <Form.Group >
