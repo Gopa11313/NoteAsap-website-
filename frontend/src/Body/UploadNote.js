@@ -53,7 +53,7 @@ export class UploadNote extends Component {
     render() {
         return (
             <>
-                <Container className="rounded mb-3" style={{ 'width': '40%',"border":"1px solid"}}>
+                <Container className="rounded mb-3" style={{ 'width': '40%',"border":"1px solid",padding:'10px'}}>
                     <h3>Upload Note</h3>
                     <Form>
                         <Form.Group>
