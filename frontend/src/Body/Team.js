@@ -78,7 +78,7 @@ const Team = () => {
                 alt="Sample avatar"
                 style={{width:"200px"}}
               />
-              <h5 className="font-weight-bold mt-4 mb-3">Maria Smith</h5>
+              <h5 className="font-weight-bold mt-4 mb-3">Aarav Mouney</h5>
               <p className="text-uppercase blue-text">Photographer</p>
               <p className="grey-text">
                 Excepteur sint occaecat cupidatat non proident, sunt in culpa
